@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #dfdfdf;
+}
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    min-width: 400px ;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.138);
+    height: fit-content;
+    overflow: visible;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.input-box .input-field {
+    width: 100%;
+    height: 60px;
+    padding: 0 25px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: .3s;
+
+
+}
+
+input::placeholder {
+    font-weight: 500;
+    color: #303030;
+}
+
+.input-field:focus {
+    width: 105%;
+}
+.forgot{
+    display:flex;
+    width: fit-content;
+}
+
+.forgot-link {
+    display: inline-block;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    text-decoration: none;
+    color: #555;
+    transition: color .3s;
+}
+
+.forgot-link:hover   {
+    color: #d93c3c;
+    text-decoration: underline;
+}
+
+.input-submit {
+    position: relative;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    background: #222;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.input-submit label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background: #000;
+    transform: scale(1.05,1);
+}
+
+.sign-up-link{
+    text-align: center;
+font-size: 15px;
+margin-top: 20px;
+}
+
+.sign-up-link a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .3s;
+}
+
+.sign-up-link a:hover {
+    color: #d93c3c;
+    text-decoration: underline;
+}
+
+
