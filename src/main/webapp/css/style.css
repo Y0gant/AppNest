@@ -20,7 +20,8 @@ body {
     justify-content: center;
     flex-direction: column;
     width: auto;
-    min-width: 400px ;
+    max-width: 450px;
+    min-width: 400px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.138);
@@ -40,7 +41,7 @@ body {
     width: 100%;
     height: 60px;
     padding: 0 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 30px;
     font-size: 17px;
@@ -59,8 +60,9 @@ input::placeholder {
 .input-field:focus {
     width: 105%;
 }
-.forgot{
-    display:flex;
+
+.forgot {
+    display: flex;
     width: fit-content;
 }
 
@@ -75,7 +77,7 @@ input::placeholder {
     transition: color .3s;
 }
 
-.forgot-link:hover   {
+.forgot-link:hover {
     color: #d93c3c;
     text-decoration: underline;
 }
@@ -108,13 +110,13 @@ input::placeholder {
 
 .submit-btn:hover {
     background: #000;
-    transform: scale(1.05,1);
+    transform: scale(1.05, 1);
 }
 
-.sign-up-link{
+.sign-up-link {
     text-align: center;
-font-size: 15px;
-margin-top: 20px;
+    font-size: 15px;
+    margin-top: 20px;
 }
 
 .sign-up-link a {
@@ -129,4 +131,28 @@ margin-top: 20px;
     text-decoration: underline;
 }
 
+.error {
+    display: block;
+    font-size: 14px;
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+    opacity: 1; /* Start visible */
+    transition: opacity 1s ease-out;
+}
 
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+    opacity: 1;
+    transition: opacity 1s ease;
+}

@@ -1,0 +1,35 @@
+<configuration>
+
+    <!-- Rolling file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app.log</file>
+        <append>true</append>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeBasedRollingPolicy">
+            <!-- Rotate when file size exceeds 10MB -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- Keep 5 backup files -->
+            <maxHistory>5</maxHistory>
+            <!-- Pattern for rolled files -->
+            <fileNamePattern>logs/app.%i.log.zip</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger -->
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

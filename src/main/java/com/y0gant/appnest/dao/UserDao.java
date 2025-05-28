@@ -5,12 +5,36 @@ import com.y0gant.appnest.utils.DBConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
+    public boolean userExists(String username, String email) {
+        String sql = "SELECT 1 FROM users WHERE username = ? AND email = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next(); // if any record exists
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.error("Error checking if user exists: {} / {}", username, email, e);
+            return true; // to avoid duplicate insertion if DB check fails
+        }
+    }
+
     public boolean registerUser(User user) {
+        if (userExists(user.getName(), user.getEmail())) {
+            return false;
+        }
         String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
