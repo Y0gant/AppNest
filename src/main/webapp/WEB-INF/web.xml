@@ -23,6 +23,22 @@
         <servlet-name>signup</servlet-name>
         <url-pattern>/signup.jsp</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>dashboard</servlet-name>
+        <jsp-file>/views/dashboard.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dashboard</servlet-name>
+        <url-pattern>/dashboard.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <jsp-file>/views/logout.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout.jsp</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

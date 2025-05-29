@@ -16,13 +16,13 @@
     <form action="${pageContext.request.contextPath}/login" method="post">
         <div class="input-box">
             <label>
-                <input name="userInput" type="text" class="input-field" placeholder="Username/E-mail" required>
+                <input name="userInput" type="text" class="input-field" placeholder="Username/Email" required>
             </label>
         </div>
 
         <div class="input-box">
             <label>
-                <input name="passwd" type="password" class="input-field" placeholder="password" required>
+                <input name="passwd" type="password" class="input-field" placeholder="Password" required>
             </label>
 
         </div>

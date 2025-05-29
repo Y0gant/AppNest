@@ -48,7 +48,7 @@ public class SignUpServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("userName", uname);
             session.setAttribute("Email", email);
-            resp.sendRedirect("dashboard.jsp");
+            resp.sendRedirect("/dashboard");
         } else {
             req.setAttribute("errorMessage", "User already exists or error creating user.");
             RequestDispatcher rd = req.getRequestDispatcher("signup.jsp");

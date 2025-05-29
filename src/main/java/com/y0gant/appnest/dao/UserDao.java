@@ -77,7 +77,7 @@ public class UserDao {
             if (rs.next()) {
                 User user = new User(
                         rs.getString("user_id"),
-                        rs.getString("name"),
+                        rs.getString("username"),
                         rs.getString("email"),
                         rs.getString("password")
                 );

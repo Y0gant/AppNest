@@ -1,0 +1,17 @@
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+    response.setDateHeader("Expires", 0); // Proxies
+
+    session = request.getSession(false);
+    String userName = (session != null) ? (String) session.getAttribute("userName") : null;
+    String email = (session != null) ? (String) session.getAttribute("Email") : null;
+
+    if (userName == null || email == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+
+    request.setAttribute("userName", userName);
+    request.setAttribute("email", email);
+%>

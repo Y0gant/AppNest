@@ -62,8 +62,9 @@
             <version>1.5.13</version>
         </dependency>
     </dependencies>
-    
+
     <build>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
