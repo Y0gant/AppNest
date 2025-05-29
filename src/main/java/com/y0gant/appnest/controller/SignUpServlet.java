@@ -9,11 +9,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 @WebServlet("/sign-up")
 public class SignUpServlet extends HttpServlet {
+    private static final Logger logger = LoggerFactory.getLogger(SignUpServlet.class);
+
     public static boolean isValidEmail(String email) {
         return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
     }
@@ -32,8 +36,11 @@ public class SignUpServlet extends HttpServlet {
         String email = req.getParameter("email");
         String passwd = req.getParameter("passwd");
 
+        logger.debug("Received sign-up request for username: '{}', email: '{}'", uname, email);
+
         // Validation
         if (!isValidUsername(uname) || !isValidEmail(email) || !isValidPassword(passwd)) {
+            logger.warn("Invalid signup input - Username: '{}', Email: '{}'", uname, email);
             req.setAttribute("errorMessage", "Invalid input! Please check your entries.");
             RequestDispatcher rd = req.getRequestDispatcher("signup.jsp");
             rd.forward(req, resp);
@@ -45,11 +52,13 @@ public class SignUpServlet extends HttpServlet {
         boolean userCreated = dao.registerUser(new User(uname, email, passwd));
 
         if (userCreated) {
+            logger.info("New user registered successfully: '{}'", uname);
             HttpSession session = req.getSession();
             session.setAttribute("userName", uname);
             session.setAttribute("Email", email);
             resp.sendRedirect("/dashboard");
         } else {
+            logger.error("User creation failed. Possibly user already exists: '{}'", uname);
             req.setAttribute("errorMessage", "User already exists or error creating user.");
             RequestDispatcher rd = req.getRequestDispatcher("signup.jsp");
             rd.forward(req, resp);

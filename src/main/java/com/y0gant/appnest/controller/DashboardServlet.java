@@ -18,10 +18,12 @@ public class DashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        logger.debug("Received GET request to /dashboard.");
+
         HttpSession session = request.getSession(false);
 
-        if (session == null || session.getAttribute("userName") == null || ((String) session.getAttribute("userName")).isEmpty()) {
-            logger.warn("Unauthorized access attempt to /dashboard. Redirecting to login.");
+        if (session == null) {
+            logger.warn("Session is null. Redirecting to login.jsp.");
             response.sendRedirect("login.jsp");
             return;
         }
@@ -29,12 +31,19 @@ public class DashboardServlet extends HttpServlet {
         String userName = (String) session.getAttribute("userName");
         String email = (String) session.getAttribute("Email");
 
-        logger.info("User '{}' accessed the dashboard.", userName);
+        if (userName == null || userName.isEmpty()) {
+            logger.warn("User not logged in or userName is missing in session. Redirecting to login.jsp.");
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
+        logger.info("User '{}' with email '{}' accessed the dashboard.", userName, email);
 
         request.setAttribute("userName", userName);
         request.setAttribute("email", email);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
+        logger.debug("Forwarding request to dashboard.jsp.");
         dispatcher.forward(request, response);
     }
 }
