@@ -39,6 +39,14 @@
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout.jsp</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>weather</servlet-name>
+        <jsp-file>/views/weather.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>weather</servlet-name>
+        <url-pattern>/weather.jsp</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
