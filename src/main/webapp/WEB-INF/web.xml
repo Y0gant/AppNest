@@ -47,6 +47,14 @@
         <servlet-name>weather</servlet-name>
         <url-pattern>/weather.jsp</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ticTacToe</servlet-name>
+        <jsp-file>/views/ticTacToe.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ticTacToe</servlet-name>
+        <url-pattern>/ticTacToe.jsp</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
