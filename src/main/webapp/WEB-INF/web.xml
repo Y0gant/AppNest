@@ -55,6 +55,14 @@
         <servlet-name>ticTacToe</servlet-name>
         <url-pattern>/ticTacToe.jsp</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>stonePaperScissor</servlet-name>
+        <jsp-file>/views/stonePaperScissor.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stonePaperScissor</servlet-name>
+        <url-pattern>/stonePaperScissor.jsp</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

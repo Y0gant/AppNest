@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe - AppNest</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <script src="${pageContext.request.contextPath}/js/gameChecker.js"></script>
@@ -26,6 +27,9 @@
     <div class="status" id="status">Player X's turn</div>
     <div style="text-align:center;">
         <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+    </div>
+    <div class="sign-up-link" style="margin-top: 20px;">
+        <a href="dashboard.jsp">← Back to Dashboard</a>
     </div>
 </div>
 </body>
