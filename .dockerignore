@@ -1,0 +1,7 @@
+.idea
+logs
+*.iml
+*.log
+.env
+*.zip
+.DS_Store
